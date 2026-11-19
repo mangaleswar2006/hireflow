@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HireFlow — Enterprise Recruitment Portal</title>
+    <title>HireFlow — Next-Gen Enterprise Recruitment Engine</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Ambient Floating Glassmorphism Orbs -->
+    <!-- Ambient Futuristic Glassmorphism Atmosphere (Matching Presentation Slides) -->
     <div class="ambient-canvas" aria-hidden="true">
+        <div class="ambient-lens-flare"></div>
         <div class="orb orb-1"></div>
         <div class="orb orb-2"></div>
         <div class="orb orb-3"></div>
@@ -25,95 +26,125 @@
     <!-- AUTHENTICATION VIEW (SIGN IN / SIGN UP + DEMO CREDENTIALS)          -->
     <!-- =================================================================== -->
     <section id="auth-view" class="auth-wrapper">
-        <div class="auth-card glass-panel">
-            <div class="brand-header">
-                <div class="brand-logo">HF</div>
-                <div>
-                    <h1 class="brand-title">HireFlow</h1>
-                    <p class="brand-subtitle">Java OOP Powered Recruitment Engine</p>
+        <div class="auth-container">
+            <!-- Academic Metadata Pill (CSE309 Project) -->
+            <div class="auth-academic-banner">
+                <div style="display:flex;align-items:center;gap:0.55rem;">
+                    <span class="badge badge-cyan">CSE309</span>
+                    <strong style="color:var(--text-primary);">Java Technologies &amp; OOP Engineering</strong>
                 </div>
+                <span id="backend-status-pill" class="engine-pill">Java Backend Ready</span>
             </div>
 
-            <div class="auth-tabs">
-                <button id="tab-signin" class="auth-tab active" onclick="switchAuthMode('signin')">Sign In</button>
-                <button id="tab-signup" class="auth-tab" onclick="switchAuthMode('signup')">Create Account</button>
-            </div>
-
-            <!-- Sign In Form -->
-            <form id="signin-form" class="auth-form" onsubmit="handleSignIn(event)">
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="signin-email" placeholder="name@company.com" required />
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="signin-password" placeholder="••••••••" required />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Sign In to Portal</button>
-            </form>
-
-            <!-- Sign Up Form -->
-            <form id="signup-form" class="auth-form hidden" onsubmit="handleSignUp(event)">
-                <div class="form-group">
-                    <label>Select Your Role</label>
-                    <div class="role-selector">
-                        <label class="role-option">
-                            <input type="radio" name="signup-role" value="JOB_SEEKER" checked onchange="toggleCompanyField()" />
-                            <span>Job Seeker</span>
-                        </label>
-                        <label class="role-option">
-                            <input type="radio" name="signup-role" value="RECRUITER" onchange="toggleCompanyField()" />
-                            <span>Recruiter / Employer</span>
-                        </label>
+            <div class="auth-card glass-panel">
+                <!-- Brand Header with Glowing H Logo Badge (Slide 1 Identity) -->
+                <div class="brand-header">
+                    <div class="brand-logo-badge">
+                        <span class="brand-logo-h">H</span>
+                    </div>
+                    <div class="brand-title-wrap">
+                        <div style="display:flex;align-items:center;gap:0.6rem;">
+                            <h1>HireFlow</h1>
+                            <span class="badge badge-emerald" style="font-size:0.7rem;">v2.0</span>
+                        </div>
+                        <p>Recruit Smarter, Hire Faster</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="signup-name" placeholder="Aarav Sharma" required />
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="signup-email" placeholder="aarav@domain.com" required />
-                </div>
-                <div id="signup-company-group" class="form-group hidden">
-                    <label>Company / Organization Name</label>
-                    <input type="text" id="signup-company" placeholder="TechNova Systems" />
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="password" id="signup-password" placeholder="Create a strong password" required />
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Create HireFlow Account</button>
-            </form>
 
-            <!-- Instant 1-Click Demo Credentials -->
-            <div class="demo-box">
-                <div class="demo-header">
-                    <span>Instant Demo Access (One-Click Fill & Login)</span>
-                    <span id="backend-status-pill" class="engine-pill">Java Backend Ready</span>
+                <!-- Academic Team Credits -->
+                <div style="margin-bottom:1.5rem;padding:0.6rem 0.9rem;background:rgba(6,21,37,0.7);border-radius:var(--radius-sm);border:1px solid var(--glass-border-subtle);font-size:0.78rem;color:var(--text-secondary);display:flex;align-items:center;justify-content:space-between;">
+                    <span>Engineers:</span>
+                    <strong style="color:var(--text-primary);">Mangaleswar Nath • KR. Divyansh • Kaustubh Singh</strong>
                 </div>
-                <div class="demo-buttons">
-                    <button type="button" class="demo-chip" onclick="demoLogin('seeker@hireflow.io', 'seeker123')">
-                        <span class="dot dot-cyan"></span>
-                        <div>
-                            <strong>Job Seeker</strong>
-                            <small>seeker@hireflow.io</small>
-                        </div>
+
+                <!-- Auth Mode Tabs -->
+                <div class="auth-tabs">
+                    <button id="tab-signin" class="auth-tab active" onclick="switchAuthMode('signin')">Sign In</button>
+                    <button id="tab-signup" class="auth-tab" onclick="switchAuthMode('signup')">Create Account</button>
+                </div>
+
+                <!-- Sign In Form -->
+                <form id="signin-form" class="auth-form" onsubmit="handleSignIn(event)">
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="signin-email" placeholder="name@company.com" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="signin-password" placeholder="••••••••" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-2">
+                        <span>Sign In to Platform</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </button>
-                    <button type="button" class="demo-chip" onclick="demoLogin('recruiter@technova.io', 'recruiter123')">
-                        <span class="dot dot-indigo"></span>
-                        <div>
-                            <strong>Recruiter</strong>
-                            <small>recruiter@technova.io</small>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signup-form" class="auth-form hidden" onsubmit="handleSignUp(event)">
+                    <div class="form-group">
+                        <label>Select Role</label>
+                        <div class="role-selector">
+                            <label class="role-option">
+                                <input type="radio" name="signup-role" value="JOB_SEEKER" checked onchange="toggleCompanyField()" />
+                                <span>Candidate</span>
+                            </label>
+                            <label class="role-option">
+                                <input type="radio" name="signup-role" value="RECRUITER" onchange="toggleCompanyField()" />
+                                <span>Recruiter</span>
+                            </label>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Aarav Sharma" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="signup-email" placeholder="aarav@hireflow.io" required />
+                    </div>
+                    <div id="signup-company-group" class="form-group hidden">
+                        <label>Company / Organization Name</label>
+                        <input type="text" id="signup-company" placeholder="TechNova Systems" />
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a strong password" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block mt-2">
+                        <span>Create HireFlow Account</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </button>
-                    <button type="button" class="demo-chip" onclick="demoLogin('admin@hireflow.io', 'admin123')">
-                        <span class="dot dot-amber"></span>
-                        <div>
-                            <strong>Admin</strong>
-                            <small>admin@hireflow.io</small>
-                        </div>
-                    </button>
+                </form>
+
+                <!-- Instant 1-Click Demo Credentials -->
+                <div class="demo-box">
+                    <div class="demo-header">
+                        <span>Instant 1-Click Demo Access:</span>
+                        <span style="font-size:0.75rem;color:var(--neon-cyan);">Auto-Authenticate</span>
+                    </div>
+                    <div class="demo-buttons">
+                        <button type="button" class="demo-chip" onclick="demoLogin('seeker@hireflow.io', 'seeker123')">
+                            <span class="dot dot-cyan"></span>
+                            <div>
+                                <strong>Candidate</strong>
+                                <small>Aarav Sharma</small>
+                            </div>
+                        </button>
+                        <button type="button" class="demo-chip" onclick="demoLogin('recruiter@technova.io', 'recruiter123')">
+                            <span class="dot dot-teal"></span>
+                            <div>
+                                <strong>Recruiter</strong>
+                                <small>Marcus S.</small>
+                            </div>
+                        </button>
+                        <button type="button" class="demo-chip" onclick="demoLogin('admin@hireflow.io', 'admin123')">
+                            <span class="dot dot-amber"></span>
+                            <div>
+                                <strong>Admin</strong>
+                                <small>Elena Vance</small>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,19 +155,26 @@
     <!-- =================================================================== -->
     <div id="app-shell" class="app-shell hidden">
         <!-- Sidebar Navigation -->
-        <aside class="sidebar glass-panel">
-            <div class="sidebar-brand">
-                <div class="brand-logo">HF</div>
-                <div>
-                    <h2>HireFlow</h2>
-                    <span id="sidebar-role-badge" class="role-badge">ROLE</span>
+        <aside class="sidebar">
+            <div>
+                <!-- Brand Header -->
+                <div class="sidebar-brand">
+                    <div class="brand-logo-badge" style="width:42px;height:42px;">
+                        <span class="brand-logo-h" style="font-size:1.4rem;">H</span>
+                    </div>
+                    <div>
+                        <h2>HireFlow</h2>
+                        <span id="sidebar-role-badge" class="badge badge-cyan" style="font-size:0.7rem;">ROLE</span>
+                    </div>
                 </div>
+
+                <!-- Navigation Links -->
+                <nav id="sidebar-nav" class="sidebar-nav">
+                    <!-- Populated dynamically based on Role -->
+                </nav>
             </div>
 
-            <nav id="sidebar-nav" class="sidebar-nav">
-                <!-- Populated dynamically based on Role (Admin / Recruiter / Job Seeker) -->
-            </nav>
-
+            <!-- Sidebar User Profile Footer -->
             <div class="sidebar-footer">
                 <div class="user-mini-card">
                     <div id="user-avatar" class="avatar">AS</div>
@@ -145,29 +183,83 @@
                         <small id="sidebar-user-email">user@hireflow.io</small>
                     </div>
                 </div>
-                <button class="btn btn-ghost btn-block" onclick="logout()">Sign Out</button>
+                <button class="btn btn-ghost btn-block btn-sm" onclick="logout()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                    <span>Sign Out</span>
+                </button>
             </div>
         </aside>
 
         <!-- Main Workspace -->
         <main class="main-content">
-            <!-- Top Header Bar -->
+            <!-- Topbar Navigation -->
             <header class="topbar glass-panel">
-                <div>
+                <div class="topbar-titles">
                     <h1 id="topbar-greeting">Welcome back</h1>
-                    <p id="topbar-subtext" class="text-muted">Here is your live recruitment overview.</p>
+                    <p id="topbar-subtext" class="text-muted">Recruit Smarter, Hire Faster • Java 17 Engine</p>
                 </div>
+
                 <div class="topbar-actions">
+                    <!-- Global Search -->
+                    <div class="global-search-bar">
+                        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="text" id="global-search-input" placeholder="Search candidates, jobs..." oninput="handleGlobalSearch(this.value)" />
+                        <kbd>/</kbd>
+                    </div>
+
+                    <!-- Post Job CTA (Recruiter & Admin) -->
                     <button id="topbar-post-job-btn" class="btn btn-primary hidden" onclick="openJobModal()">
-                        + Post New Job
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                        <span>Post a Job</span>
                     </button>
                 </div>
             </header>
 
-            <!-- VIEW 1: DASHBOARD -->
+            <!-- =================================================================== -->
+            <!-- VIEW 1: DASHBOARD (Matches Slide 1 Laptop Mockup)                   -->
+            <!-- =================================================================== -->
             <section id="view-dashboard" class="view-section">
+                <!-- Hero Banner Section -->
+                <div class="dashboard-hero">
+                    <div class="hero-content">
+                        <h2>Recruit Smarter, <span class="gradient-text">Hire Faster</span></h2>
+                        <p>A Java-powered, enterprise-grade recruitment platform engineered with high concurrency, Stream Search engines, and zero third-party framework overhead.</p>
+                        
+                        <div class="hero-actions">
+                            <button id="hero-primary-cta" class="btn btn-primary" onclick="handleHeroPrimaryAction()">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                                <span id="hero-cta-text">+ Post a Job</span>
+                            </button>
+                            <button class="btn btn-ghost" onclick="navigateTo('jobs')">
+                                <span>Browse Opportunities</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+
+                        <!-- Technical Architecture Pills (Slide 1 Feature Badges) -->
+                        <div class="hero-tech-pills">
+                            <div class="tech-pill">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+                                <span>Core Java 17</span>
+                            </div>
+                            <div class="tech-pill">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                                <span>Zero-Dependency HTTP Server</span>
+                            </div>
+                            <div class="tech-pill">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                                <span>Stream Search Engine</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 KPI Cards (Matching Slide 1 Laptop Mockup) -->
                 <div id="dashboard-stats-grid" class="stats-grid"></div>
+
+                <!-- Dashboard Columns (Primary List + Analytics Funnel) -->
                 <div class="dashboard-columns">
+                    <!-- Column 1: Featured List -->
                     <div class="glass-panel panel-pad">
                         <div class="section-header">
                             <h3 id="dash-primary-title">Featured Opportunities</h3>
@@ -175,21 +267,32 @@
                         </div>
                         <div id="dash-primary-list" class="stack-list"></div>
                     </div>
+
+                    <!-- Column 2: Hiring Funnel & Recent Activity -->
                     <div class="glass-panel panel-pad">
                         <div class="section-header">
-                            <h3 id="dash-secondary-title">Recent Application Activity</h3>
-                            <button class="btn btn-sm btn-ghost" onclick="navigateTo('applications')">View Pipeline</button>
+                            <h3 id="dash-secondary-title">Candidate Pipeline Funnel</h3>
+                            <button class="btn btn-sm btn-ghost" onclick="navigateTo('applications')">View ATS</button>
+                        </div>
+                        
+                        <!-- Visual Hiring Funnel -->
+                        <div id="dash-funnel-widget" class="funnel-container mb-3"></div>
+
+                        <div class="section-header mt-2">
+                            <h4 style="font-size:0.95rem;color:var(--text-secondary);">Recent Submissions</h4>
                         </div>
                         <div id="dash-secondary-list" class="stack-list"></div>
                     </div>
                 </div>
             </section>
 
-            <!-- VIEW 2: JOB LISTINGS BOARD -->
+            <!-- =================================================================== -->
+            <!-- VIEW 2: JOB LISTINGS BOARD                                          -->
+            <!-- =================================================================== -->
             <section id="view-jobs" class="view-section hidden">
                 <div class="filter-bar glass-panel">
                     <div class="search-input-wrap">
-                        <input type="text" id="job-search-input" placeholder="Search by job title, company, location, or required skill (e.g., Java, Docker)..." oninput="renderJobsView()" />
+                        <input type="text" id="job-search-input" placeholder="Search by role, company, location, or required skill (e.g., Java, Docker)..." oninput="renderJobsView()" />
                     </div>
                     <div id="job-type-pills" class="pill-group">
                         <button class="filter-pill active" data-type="ALL" onclick="setJobTypeFilter('ALL')">All Roles</button>
@@ -203,11 +306,13 @@
                 <div id="jobs-grid" class="jobs-grid"></div>
             </section>
 
-            <!-- VIEW 3: APPLICATIONS MANAGEMENT -->
+            <!-- =================================================================== -->
+            <!-- VIEW 3: APPLICATIONS MANAGEMENT (ATS PIPELINE)                     -->
+            <!-- =================================================================== -->
             <section id="view-applications" class="view-section hidden">
                 <div class="filter-bar glass-panel">
                     <div id="app-status-pills" class="pill-group">
-                        <button class="filter-pill active" data-status="ALL" onclick="setAppStatusFilter('ALL')">All Applications</button>
+                        <button class="filter-pill active" data-status="ALL" onclick="setAppStatusFilter('ALL')">All Pipeline</button>
                         <button class="filter-pill" data-status="Pending" onclick="setAppStatusFilter('Pending')">Pending</button>
                         <button class="filter-pill" data-status="Reviewed" onclick="setAppStatusFilter('Reviewed')">Reviewed</button>
                         <button class="filter-pill" data-status="Shortlisted" onclick="setAppStatusFilter('Shortlisted')">Shortlisted</button>
@@ -219,11 +324,11 @@
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>Role & Company</th>
+                                <th>Role &amp; Company</th>
                                 <th>Candidate / Applicant</th>
-                                <th>Skill Match</th>
+                                <th>Algorithmic Match</th>
                                 <th>Applied Date</th>
-                                <th>Current Status</th>
+                                <th>Lifecycle Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -232,13 +337,18 @@
                 </div>
             </section>
 
-            <!-- VIEW 4: SEEKER PROFILE EDITOR -->
+            <!-- =================================================================== -->
+            <!-- VIEW 4: SEEKER PROFILE EDITOR                                       -->
+            <!-- =================================================================== -->
             <section id="view-profile" class="view-section hidden">
                 <div class="profile-layout">
                     <form id="profile-form" class="glass-panel panel-pad" onsubmit="handleSaveProfile(event)">
                         <div class="section-header">
-                            <h3>Editable Candidate Profile</h3>
-                            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+                            <div>
+                                <h3>Candidate Profile &amp; Resume</h3>
+                                <p class="text-muted" style="font-size:0.82rem;">Updated skills directly recalculate your Java Stream Match Score.</p>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Save Profile Changes</button>
                         </div>
                         <div class="form-grid-2">
                             <div class="form-group">
@@ -261,49 +371,57 @@
                         <div class="form-group">
                             <label>Technical Skills (Comma-separated with live preview tags)</label>
                             <input type="text" id="prof-skills" placeholder="Java, Spring Boot, SQL, Docker, Data Structures" oninput="renderSkillPreviewTags('prof-skills', 'prof-skill-tags-preview')" />
-                            <div id="prof-skill-tags-preview" class="tags-wrap mt-2"></div>
+                            <div id="prof-skill-tags-preview" class="tags-wrap mt-1"></div>
                         </div>
                         <div class="form-group">
-                            <label>Professional Summary</label>
+                            <label>Professional Bio / Summary</label>
                             <textarea id="prof-summary" rows="3" placeholder="Brief overview of your engineering strengths and career goals..."></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Resume / CV (Paste Complete Text)</label>
-                            <textarea id="prof-resume" rows="8" class="mono-textarea" placeholder="Paste your full resume content, projects, and achievements here..."></textarea>
+                            <label>Full Resume / CV Text</label>
+                            <textarea id="prof-resume" rows="7" class="mono-textarea" placeholder="Paste your full resume content, projects, and achievements here..."></textarea>
                         </div>
                     </form>
 
+                    <!-- Live Recruiter Preview Card -->
                     <div class="glass-panel panel-pad">
-                        <h3>Live Recruiter Preview Card</h3>
-                        <p class="text-muted mb-3">How your profile & resume appear when recruiters inspect your application.</p>
+                        <div class="section-header">
+                            <div>
+                                <h3>Recruiter View Dossier</h3>
+                                <p class="text-muted" style="font-size:0.82rem;">Real-time inspection of your talent card.</p>
+                            </div>
+                            <span class="badge badge-emerald">Live Preview</span>
+                        </div>
                         <div id="profile-live-card"></div>
                     </div>
                 </div>
             </section>
 
-            <!-- VIEW 5: ADMIN USER MANAGEMENT -->
+            <!-- =================================================================== -->
+            <!-- VIEW 5: ADMIN USER MANAGEMENT                                       -->
+            <!-- =================================================================== -->
             <section id="view-users" class="view-section hidden">
                 <div class="filter-bar glass-panel">
                     <div class="search-input-wrap">
-                        <input type="text" id="user-search-input" placeholder="Search users by name or email..." oninput="renderUsersView()" />
+                        <input type="text" id="user-search-input" placeholder="Search platform directory by name or email..." oninput="renderUsersView()" />
                     </div>
                     <div id="user-role-pills" class="pill-group">
-                        <button class="filter-pill active" data-role="ALL" onclick="setUserRoleFilter('ALL')">All Roles</button>
+                        <button class="filter-pill active" data-role="ALL" onclick="setUserRoleFilter('ALL')">All Accounts</button>
                         <button class="filter-pill" data-role="ADMIN" onclick="setUserRoleFilter('ADMIN')">Admins</button>
                         <button class="filter-pill" data-role="RECRUITER" onclick="setUserRoleFilter('RECRUITER')">Recruiters</button>
-                        <button class="filter-pill" data-role="JOB_SEEKER" onclick="setUserRoleFilter('JOB_SEEKER')">Job Seekers</button>
+                        <button class="filter-pill" data-role="JOB_SEEKER" onclick="setUserRoleFilter('JOB_SEEKER')">Candidates</button>
                     </div>
                 </div>
                 <div class="glass-panel table-container">
                     <table class="data-table">
                         <thead>
                             <tr>
-                                <th>User</th>
+                                <th>User Account</th>
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Joined Date</th>
-                                <th>Account Status</th>
-                                <th>Admin Actions</th>
+                                <th>Access Status</th>
+                                <th>Administrative Controls</th>
                             </tr>
                         </thead>
                         <tbody id="users-table-body"></tbody>
@@ -319,7 +437,10 @@
     <div id="job-modal" class="modal-backdrop hidden">
         <div class="modal-card glass-panel">
             <div class="modal-header">
-                <h3 id="job-modal-title">Post New Opportunity</h3>
+                <div>
+                    <h3 id="job-modal-title">Post New Opportunity</h3>
+                    <p class="text-muted" style="font-size:0.84rem;">Publish directly to the Java memory-mapped store.</p>
+                </div>
                 <button class="modal-close" onclick="closeModal('job-modal')">&times;</button>
             </div>
             <form id="job-form" onsubmit="handleSaveJob(event)">
@@ -348,7 +469,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Salary / Stipend Package</label>
+                        <label>Compensation Package</label>
                         <input type="text" id="job-salary" placeholder="₹18,00,000 - ₹24,00,000 / yr" required />
                     </div>
                     <div class="form-group">
@@ -361,17 +482,17 @@
                     </div>
                     <div class="form-group">
                         <label>Minimum Experience</label>
-                        <input type="text" id="job-min-exp" placeholder="2+ Years / 0-1 Year" required />
+                        <input type="text" id="job-min-exp" placeholder="2+ Years / Fresher" required />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Required Skills (Comma-separated)</label>
+                    <label>Required Technical Skills (Comma-separated)</label>
                     <input type="text" id="job-skills" placeholder="Java, Spring Boot, SQL, Docker, REST APIs" required oninput="renderSkillPreviewTags('job-skills', 'job-modal-skill-preview')" />
-                    <div id="job-modal-skill-preview" class="tags-wrap mt-2"></div>
+                    <div id="job-modal-skill-preview" class="tags-wrap mt-1"></div>
                 </div>
                 <div class="form-group">
-                    <label>Detailed Role Description & Responsibilities</label>
-                    <textarea id="job-description" rows="4" required placeholder="Describe key engineering responsibilities, tech stack, and team culture..."></textarea>
+                    <label>Role Description &amp; Responsibilities</label>
+                    <textarea id="job-description" rows="4" required placeholder="Describe technical scope, key engineering challenges, and team expectations..."></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-ghost" onclick="closeModal('job-modal')">Cancel</button>
@@ -400,14 +521,14 @@
     </div>
 
     <!-- =================================================================== -->
-    <!-- MODAL 3: APPLICATION DETAIL & CANDIDATE EVALUATION MODAL            -->
+    <!-- MODAL 3: APPLICATION DETAIL & CANDIDATE DOSSIER                     -->
     <!-- =================================================================== -->
     <div id="app-detail-modal" class="modal-backdrop hidden">
         <div class="modal-card glass-panel">
             <div class="modal-header">
                 <div>
-                    <h3 id="app-modal-title">Application Dossier</h3>
-                    <p id="app-modal-subtitle" class="text-muted">Candidate evaluation & skill match breakdown</p>
+                    <h3 id="app-modal-title">Candidate Evaluation Dossier</h3>
+                    <p id="app-modal-subtitle" class="text-muted">Algorithmic skill match breakdown &amp; full resume</p>
                 </div>
                 <button class="modal-close" onclick="closeModal('app-detail-modal')">&times;</button>
             </div>
@@ -419,4 +540,3 @@
     <script src="app.js"></script>
 </body>
 </html>
-
